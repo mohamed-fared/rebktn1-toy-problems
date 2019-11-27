@@ -12,6 +12,47 @@
 
 
 
+
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+
+  var commn = [];
+  var obj = {} ; 
+
+
+  for ( var i = 0 ; i < string1.length ; i++) {
+   
+
+    for ( var j =0 ; j < string2.length ; j++) {
+
+      if ( string1[i] === string2[j] ) {
+
+        obj[string1[i]] = 0
+
+        commn.push(string1[i])
+
+      }
+    }
+  }
+
+  for ( var i = 0 ; i < commn.length ; i++) {
+
+    if (commn[i] === commn[i+1]) {
+        obj[commn[i]] = obj[commn[i]] +1 
+    }
+  }
+
+  var x = Object.keys(obj)
+ 
+   for ( i = 0 ; i < x.length ; i++ ) 
+   {
+
+    if (x[i] === " "){
+
+        x.splice(i,1)
+    }
+
+   }  
+  
+  return x.join("")
 };
+
