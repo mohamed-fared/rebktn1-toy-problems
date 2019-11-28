@@ -17,3 +17,54 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+
+
+// I tried but i dont get the idea of Q , for me if it was more clear maybe i can do something :}
+// 
+
+var removNb = function(n) {
+
+  var array = []; 
+  var multi = 0 ;
+  var sum = 0 ; 
+
+  if ( n <= 0 ) {
+    return [];
+  }
+
+  var x = Math.floor(Math.random() * n) + 1
+  var y = Math.floor(Math.random() * n) + 1
+
+  multi = x * y ;
+
+  if ( x !== y ) {
+
+    array.push([x,y])
+
+  }
+  for ( var i = 0 ; i < n ; i++) {
+
+    if ( i !== x &&i !== y ) {
+
+      array.push(i)
+    }
+  }
+ 
+for (var i = 1 ; i < array.length ;i++) {
+
+   sum = sum + array[i] ;
+}
+
+console.log(multi , "###" ,sum)
+
+if (multi === sum ) {
+
+  return array[0]
+
+  }else{
+
+    return []
+}
+
+
+}
