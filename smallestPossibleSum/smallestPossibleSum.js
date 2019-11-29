@@ -28,3 +28,27 @@
 // Additional notes:
 
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
+
+// ===============   :D  =========
+
+var samllSum = function(x) {
+
+// i kust learrned how to sort the array in descending way one point for that the other thing completely mess
+  x.sort(function(a, b) {
+  return b - a;
+  });
+  
+  for ( var i = 0 ; i < x.length ; i++) {
+
+    for (var j = 0 ; j < x.length ; j++) {
+
+      if (x[i] > x[j]) {
+
+       x[i] = x[i] - x[j]
+
+      }
+    }
+  }
+
+  return x
+}
