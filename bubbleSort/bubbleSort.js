@@ -33,6 +33,35 @@
 // Feel free to add helper functions if needed.
 
 
+
 var bubbleSort = function(array) {
-  // Your code here.
+  
+// var mid = Math.floor(array.length / 2 ) 
+// if (array[0] < array[array.length- 1] && array[mid] > array[mid +1] ) {
+//   return array
+// }
+
+// couldnot find the base end condintion 
+
+  if (array.sort().join("") === array.join(""))
+  {
+    return array
+  }
+
+  for (var i = 0 ; i < array.length ; i++) {
+
+    if (array[i+1] !== undefined) {
+
+      if (array[i] > array[i+1]) {
+
+      var removed = array.splice(i+1,1)
+      array.unshift(removed[0])
+    }
+
+    }
+
+     return bubbleSort(array)
+   
+  }
+ 
 };
