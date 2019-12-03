@@ -1,6 +1,7 @@
- 
+
 
 describe('Stack', function() {
+
   describe('constructor', function() {
     it('should exist', function() {
       should.exist(Stack);
