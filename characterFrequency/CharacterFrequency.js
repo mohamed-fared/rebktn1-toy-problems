@@ -17,23 +17,21 @@ characterFrequency("") -->  [ ]
 
 var characterFrequency = function(string){
 
-var obj = {}
-var array = []
-var string = string.split('')
-var string = string.sort()
-var hold 
-var arraySort 
+var obj = {};
+var array = [];
 
-if (string !== ""){
+    if (string !== ""){
 
     for ( var i = 0 ; i <string.length ; i++){
+
          if (obj[string[i]]){
+
              obj[string[i]] = obj[string[i]] + 1
+
             }else{
                 obj[string[i]] = 1
             }
     }
-
      var keys = Object.keys(obj)
 
     for ( var i = 0 ; i < keys.length ; i++){
@@ -41,39 +39,14 @@ if (string !== ""){
         array.push([keys[i],obj[keys[i]]])
 
     }
+        array = array.sort(function(a, b ){
+        return b[1]-a[1];
+    })
 
-    // var bubbleSort = function(array){
-
-    //     if(array.length === 0 ){
-    //         return array
-    //     }
-
-    // for (var i = 0 ; i < array.length ; i++){
-
-    //     if(array[i+1] !== undefined){
-
-    //         if ( array[i][1] < array[i+1][1]){
-    //         hold = array[i][1]
-    //         array[i][1] = array[i+1][1]
-    //         array[i+1][1] = hold
-    //         }
-
-    //     }else{
-
-    //     }
-    //   }
-    // }
-    
-    // arraySort = bubbleSort(array)
-    
-
-    // return arraySort
-
-    return array
+    return array;
 
     }else
     {
-        return []
+        return [];
     }
-
 }
