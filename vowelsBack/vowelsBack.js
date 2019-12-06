@@ -12,78 +12,52 @@
 
 // Provided string will always be lower case, won't be empty and will have no special characters.
 
-
-
 var vowelBack = function(string){
 
   string = string.split("")
   var az = "abcdefghijklmnopqrstuvwxyz".split("")
-
   for ( var i = 0 ; i < string.length ; i++){
-
      var index = az.indexOf(string[i])
-
      switch(string[i]){
-
       case "a":
       case "i":
       case "u":
-
-      console.log("vowel",index,string[i])
-
        if(az[index-5] !== undefined){
-
-                string[i]=az[index-5]
-
-                 console.log("vowel",index-5,string[i])
-
+                if(az[index-5]!=="d"){
+                    string[i]=az[index-5]
+                  }
             }else{
-
-              string[i] = az[az.length-5]
-
-              console.log("vowel",az.length-5,string[i])
+              var subindex =  5  - index
+              string[i] = az[az.length-subindex]
             }     
       break;
       case "o":
       case "c":
-            console.log("special",index,string[i])
-            string[i]=az[index-1]
-            console.log("special",index-1,string[i])
-
+            string[i]=az[index-1]     
         break;
-
         case "d":
-
-            console.log("special",index,string[i])
-            string[i]=az[index-3]
-            console.log("special",index-3,string[i])
+            string[i]=az[index-3]   
             break;
-
-        case "e":
-
-            console.log("special",index,string[i])
+        case "e":     
             string[i]=az[index-4]
-            console.log("special",index-4,string[i])
             break;
-
       default:
-
-         console.log("consonants",index,string[i])
-
           if (az[index+9] !== undefined){
-
-                string[i]= az[index + 9]
-
-                console.log("consonants",index+9,string[i])
-
+            if(az[index+9] !== "c" && az[index+9] !== "o" && 
+                az[index+9] !== "d" && az[index+9] !== "e"){
+                 string[i]= az[index + 9]
+                  }
             }else{
-
-                string[i]= az[0]
-                 console.log("consonants",9,string[i])
+                var subindex = 17 - index
+                var abs = Math.abs(subindex) 
+                if(az[abs] !== "c" && az[abs] !== "o" &&
+                 az[abs] !== "d" && az[abs] !== "e"){
+                    string[i]= az[abs]
+                 }                    
             }     
         }
     }
   
-return string.join("")
-  
+    return string.join("") 
 }
+
