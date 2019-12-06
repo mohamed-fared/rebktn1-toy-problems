@@ -14,44 +14,76 @@
 
 
 
-// need more time :)) it will work for "omar" only i think not for matt wallahy 
 var vowelBack = function(string){
 
   string = string.split("")
   var az = "abcdefghijklmnopqrstuvwxyz".split("")
 
-
   for ( var i = 0 ; i < string.length ; i++){
 
-    if (string[i] !=="a" && string[i] !== "e" && string[i] !== "i" && string[i] !== "o" & string[i] !== "u"){
+     var index = az.indexOf(string[i])
 
+     switch(string[i]){
 
-         var index = az.indexOf(string[i])
+      case "a":
+      case "i":
+      case "u":
 
-            if (az[index+9] !== undefined){
+      console.log("vowel",index,string[i])
 
-                string[i]= az[index + 9]
+       if(az[index-5] !== undefined){
+
+                string[i]=az[index-5]
+
+                 console.log("vowel",index-5,string[i])
 
             }else{
 
+              string[i] = az[az.length-5]
+
+              console.log("vowel",az.length-5,string[i])
+            }     
+      break;
+      case "o":
+      case "c":
+            console.log("special",index,string[i])
+            string[i]=az[index-1]
+            console.log("special",index-1,string[i])
+
+        break;
+
+        case "d":
+
+            console.log("special",index,string[i])
+            string[i]=az[index-3]
+            console.log("special",index-3,string[i])
+            break;
+
+        case "e":
+
+            console.log("special",index,string[i])
+            string[i]=az[index-4]
+            console.log("special",index-4,string[i])
+            break;
+
+      default:
+
+         console.log("consonants",index,string[i])
+
+          if (az[index+9] !== undefined){
+
+                string[i]= az[index + 9]
+
+                console.log("consonants",index+9,string[i])
+
+            }else{
 
                 string[i]= az[0]
-            }
-    }else{
-        var index = az.indexOf(string[i])
-
-        if(az[index-1] !== undefined){
-
-            string[i]=az[index-1]
-            console.log(az[index-1])
-
-        }else{
-            string[i] = az[az.length-5 ]
+                 console.log("consonants",9,string[i])
+            }     
         }
     }
-
-  }
   
-return string
+return string.join("")
   
 }
