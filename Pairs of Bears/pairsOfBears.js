@@ -20,3 +20,39 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+
+
+var pairs = function(x,str) {
+
+   var str =  str.split("")
+   var array = []
+   var counter = 0
+   var state = false 
+   var result = []
+
+   for ( var i = 0 ; i < str.length ; i++){
+
+    if ( str[i]=="B" && str[i+1] =="8"){
+
+        array.push("B8")
+        counter++
+        
+        }else if (str[i]=="8" && str[i+1] =="B"){
+
+            array.push("8B")
+            counter++
+        }
+
+    }
+    if ( x <= counter){
+        state = true 
+    }else if (counter === 0 ){
+        return ""
+    }
+    array = array.join("")
+    result.push([array,state])
+
+    return result 
+
+
+}
