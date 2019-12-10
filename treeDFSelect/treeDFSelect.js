@@ -30,12 +30,35 @@
  * Basic tree that stores a value.
  */
 
+var fliterValue = function(value,depth){
+
+    return  value % 2 
+ }
+ 
+
 var Tree = function(value) {
   this.value = value;
   this.children = [];
 };
 
 Tree.prototype.DFSelect = function(filter) {
+
+  var array = []
+  if (filter(this.value)){
+    console.log(this.value)
+    array.push(this.value)
+  }
+  if (this.children !== undefined){
+
+    for(var i = 0 ; i < this.children.length ; i++){
+
+          array.push(...this.children[i].DFSelect(filter))
+
+    }
+  }
+
+  return array
+
 };
 
 
@@ -93,3 +116,19 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+
+
+  var root1 = new Tree(1);
+  var branch2 = root1.addChild(2);
+  var branch3 = root1.addChild(3);
+  var leaf4 = branch2.addChild(4);
+  var leaf5 = branch2.addChild(5);
+  var leaf6 = branch3.addChild(6);
+  var leaf7 = branch3.addChild(7);
+
+
+
+
+
+
