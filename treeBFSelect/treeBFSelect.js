@@ -30,6 +30,16 @@
  * Basic tree that stores a value.
  */
 
+
+function filter(value){
+    var arr = []
+    if( value === 6 ) {
+         arr.push(value) 
+         return arr 
+    }
+}
+
+
 var Tree = function(value) {
   this.value = value;
   this.children = [];
@@ -38,7 +48,22 @@ var Tree = function(value) {
 
 
 Tree.prototype.BFSelect = function(filter) {
-  // return an array of values for which the function filter(value, depth) returns true
+
+       
+    var result = filter(this.value)
+
+        if (this.children.length !== 0 ){
+
+        for(var i = 0 ; i < this.children.length ; i++ ) {
+
+               this.children[i].BFSelect(filter)
+        }
+    }
+
+    console.log(result)
+
+
+      // return an array of values for which the function filter(value, depth) returns true
 };
 
 /**
@@ -94,3 +119,17 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+
+
+
+var tree = new Tree (4)
+var branch1 = tree.addChild(6)
+var branch2 = tree.addChild(6)
+var result = tree.BFSelect(filter)
+
+
+
+
+
+
