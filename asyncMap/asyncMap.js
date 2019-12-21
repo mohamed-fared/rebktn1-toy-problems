@@ -38,5 +38,88 @@
  */
 
 
+
+// if i can pass the index of task with each result then i can sort the result of array to each func index 
 var asyncMap = function(tasks, callback) {
+
+    var array = []
+    var index = []
+
+    var cb = function (str,i){
+
+        array.push(str)
+        index.push(i)
+    }
+    for (var i = 0 ; i < tasks.length ; i++){
+
+        tasks[i](cb,i)
+     }
+     return callback(array,index)
+     
 };
+
+var x = asyncMap([
+   function(cb){
+     setTimeout(function(){
+      cb('one');
+     }, 200);
+   },
+   function(cb){
+    setTimeout(function(){
+      cb('two');
+     }, 100);
+   }
+ ],
+   function(results){
+     // the results array will equal ['one','two'] even though
+    // the second function had a shorter timeout.
+     console.log(results); // ['one', 'two']
+     console.log(arguments[1])
+     return results
+  });
+
+
+
+
+
+
+
+
+//  i konw i changed some stuff but i think i need to figuare away out to reach this opint maybe 
+// var asyncMap = function(tasks, callback) {
+
+//     var array = []
+//     var index = []
+
+//     var cb = function (str,i){
+
+//         array.push(str)
+//         index.push(i)
+//     }
+//     for (var i = 0 ; i < tasks.length ; i++){
+
+//         tasks[i](cb,i)
+//      }
+//      return callback(array,index)
+     
+// };
+
+// var x = asyncMap([
+//    function(cb,i){
+//      setTimeout(function(){
+//       cb('one',i);
+//      }, 200);
+//    },
+//    function(cb,i){
+//     setTimeout(function(){
+//       cb('two',i);
+//      }, 100);
+//    }
+//  ],
+//    function(results){
+//      // the results array will equal ['one','two'] even though
+//     // the second function had a shorter timeout.
+//      console.log(results); // ['one', 'two']
+//      console.log(arguments[1])
+//      return results
+//   });
