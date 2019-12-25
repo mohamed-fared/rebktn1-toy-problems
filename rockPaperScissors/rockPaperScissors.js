@@ -18,7 +18,26 @@
 *
 */
 
-var rockPaperScissors = function (
-) {
-  // TODO: your solution here
+
+var rockPaperScissors = function (n) {
+
+
+	var arr = ["R","P","S"]
+
+	var arrResult = []
+
+	var str = ""
+
+	for (var i = 0 ; i < n ; i++){
+
+		// arrResult.push(arr[Math.floor(Math.random()*3)])
+
+		str = str + arr[Math.floor(Math.random()*3)]
+
+	}
+
+	arrResult.push(str)
+	console.log(arrResult)
+	return arrResult 
+
 };
