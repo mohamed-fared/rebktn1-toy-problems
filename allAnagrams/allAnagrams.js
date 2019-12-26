@@ -12,6 +12,31 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
-  // Your code here.
-};
+
+
+var allAnagrams = function(string){
+
+    var round = string.length
+    var arr = string.split("")
+    var result = [];
+    var repeat = function(str){
+        
+        var strr = str || ''
+
+        if(strr.length === round){
+
+            result.push(strr)
+            return;
+
+        }
+         arr.forEach((string)=> {
+
+             repeat( strr + string)
+        
+        })
+    }
+
+    repeat();
+    return result
+
+}
