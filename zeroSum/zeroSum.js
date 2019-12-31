@@ -7,3 +7,32 @@ Constraints: Solve this linear time complexity O(n)
 zeroSum([ 1, 3, 2, -3 ]) // true
 zeroSum([ 5, 7, 2, 9 ]) // false
 */
+
+
+var zeroSum = function(num){
+
+	var obj ={}
+
+	for (var i = 0 ; i < num.length; i++ ){
+
+		if(obj[num[i]]){
+
+			// console.log(obj)
+
+			return true 
+
+		}else{
+
+			obj[-[num[i]]] = 1
+		}
+
+	}	
+
+	return false 
+	
+}
+
+
+
+var y = zeroSum([ 1, 3, 2, -3])
+var x = zeroSum([ 5, 7, 2, 9 ])
